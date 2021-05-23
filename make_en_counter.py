@@ -60,7 +60,7 @@ def count_en(to_count):
     if 3 in to_count:
         print('start reading translated_ko_news_files')        
         for i in tqdm(range(1,5)):
-            df = pd.read_excel(path+'newsKo/3_문어체_뉴스('+str(i)+')_191213.xlsx')
+            df = pd.read_excel(path+'newsKo/news_ko'+str(i)+'.xlsx')
             parallel = df['ID 원문 번역문'.split(' ')]
             en_count = word_count(parallel['번역문'], en_count)
         print("len(en_count) :{}".format(len(en_count)))  
@@ -69,5 +69,5 @@ def count_en(to_count):
     json_save(en_count+en_news+en_wk,path+path2+'counted_vocs')
 
 if __name__ == '__main__':
-    to_count = [1,2,3]
+    to_count = [3] #[1,2,3]
     count_en(to_count)
