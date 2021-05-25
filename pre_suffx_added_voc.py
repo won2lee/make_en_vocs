@@ -32,7 +32,8 @@ def modi_dict(k,l,v,dt_to_add,dt_to_pop):
     
 """
 
-def main():    
+def main(): 
+    import copy   
     X = json_read('./data/counted_vocs.json')
     Vocabs = {k.strip():v for k,v in X.items() if v>2}
     Vocabs.pop('',1)
@@ -129,12 +130,12 @@ def main():
 
     path = "./data/en_vocabs/"
     Xffix ={'prefix':prefx,'suffix':suffx}
-    json_save(Xffix,path+'pre_suf_fix_check')
+    json_save(Xffix,path+'pre_suf_fix')
     XXX.update(prefx)
     XXX.update(suffx)
-    json_save(XXX,path+'counted_vocs_0613_added_pre_suffx_check')
+    json_save(XXX,path+'counted_vocs_0613_added_pre_suffx')
     vocabs = {' '.join([c for c in k]):v for k,v in XXX.items()}
-    json_save(XXX, path+'vocabs_check')
+    json_save(XXX, path+'vocabs')
 
 if __name__ == "__main__":
     main()
